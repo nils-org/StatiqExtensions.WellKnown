@@ -1,0 +1,7 @@
+.idea/
+bin/
+obj/
+*.user
+cache/
+output/
+BuildArtifacts/

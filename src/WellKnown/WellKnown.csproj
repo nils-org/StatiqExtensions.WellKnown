@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>11</LangVersion>
+    <RootNamespace>Statiq.Extensions.WellKnown</RootNamespace>
+    <AssemblyName>StatiqExtensions.WellKnown</AssemblyName>
+    <AnalysisLevel>latest</AnalysisLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2022.3.1" PrivateAssets="all" />
+    <PackageReference Include="Statiq.Common" Version="1.0.0-beta.63" />
+    <PackageReference Include="Statiq.Core" Version="1.0.0-beta.63" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>
