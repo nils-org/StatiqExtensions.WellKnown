@@ -14,7 +14,7 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <None Include="..\..\LICENSE.md" Link="LICENSE.md"  PackagePath="" Pack="true" />
+    <None Include="..\..\LICENSE.md" Link="LICENSE.md" PackagePath="" Pack="true" />
     <None Include="..\..\README.md" Link="README.md" PackagePath="" Pack="true" />
   </ItemGroup>
   
@@ -39,8 +39,8 @@
   
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" Version="2022.3.1" PrivateAssets="all" />
-    <PackageReference Include="Statiq.Common" Version="1.0.0-beta.63" />
-    <PackageReference Include="Statiq.Core" Version="1.0.0-beta.63" />
+    <PackageReference Include="Statiq.Common" Version="1.0.0-beta.65" />
+    <PackageReference Include="Statiq.Core" Version="1.0.0-beta.65" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
