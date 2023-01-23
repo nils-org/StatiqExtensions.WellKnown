@@ -28,7 +28,13 @@ public sealed class WellKnownFolderPipeline : Pipeline
                         var o = ctx.Settings.ContainsKey(SettingKeys.WebFingerAlias.FromTemplate);
                         return o;
                     }),
-                    new FromTemplateModule()),        );
+                    new FromTemplateModule()),
+            
+            // MicrosoftIdentityAssociation
+            new ExecuteIf(
+                Config.FromContext(ctx => ctx.Settings.ContainsKey(SettingKeys.MicrosoftIdentityAssociation.ApplicationId)),
+                new MsIaModule())
+        );
 
         OutputModules = new ModuleList(new WriteFiles());
     }

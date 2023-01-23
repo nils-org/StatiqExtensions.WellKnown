@@ -68,4 +68,29 @@ public static class SettingKeys
         /// </summary>
         public const string FromTemplate = nameof(WebFingerAlias) + nameof(FromTemplate);
     }
+
+    /// <summary>
+    /// Use this keys to
+    /// create a <c>microsoft-identity-association.json</c> file.
+    /// See <see href="https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-configure-publisher-domain#verify-a-new-domain-for-your-app"/> .
+    /// </summary>
+    public static class MicrosoftIdentityAssociation
+    {
+        
+        /// <summary>
+        /// The value can be a <see cref="string"/> or a list of string.
+        ///
+        /// <example>
+        /// Supply Ids, using the <see cref="SettingKeys.MicrosoftIdentityAssociation.ApplicationId"/> setting.
+        /// <code>
+        /// await Bootstrapper
+        ///     .Factory
+        ///     .CreateWeb(args)
+        ///     .AddSetting(SettingKeys.MicrosoftIdentityAssociation.ApplicationId, "&lt;your-app-id&gt;, &lt;another-app-id&gt;")
+        ///     .AddPipeline<WellKnownFolderPipeline>()
+        ///     .RunAsync();
+        /// </code></example> 
+        /// </summary>
+        public const string ApplicationId = nameof(MicrosoftIdentityAssociation) + nameof(ApplicationId);
+    }
 }

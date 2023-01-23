@@ -44,6 +44,13 @@ real account in the fediverse, use one of the following settings:
 
 * `WebFingerAliasFromTemplate`: Set this to a fediverse handle and the content of the webFinger-file will be generated from an internal template.
 * `WebFingerAliasStaticResult`: Set this to the full content of the webFinger-file. This setting takes precedence over `WebFingerAliasFromTemplate`.
+
+### MicrosoftIdentityAssociation
+
+To create a [`microsoft-identity-association.json`](https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-configure-publisher-domain#verify-a-new-domain-for-your-app) file, use the setting below:
+
+* `MicrosoftIdentityAssociation.ApplicationId`: Set this to an application-id or a list of application-ids.
+
 ## Maintainer
 
 [Nils Andresen @nils-a][maintainer]
