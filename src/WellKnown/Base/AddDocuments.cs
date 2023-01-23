@@ -4,7 +4,7 @@ namespace Statiq.Extensions.WellKnown.Base;
 
 /// <summary>
 /// Adds a list <see cref="IDocument"/> to the end of the
-/// documents in the current pipeline.
+/// existing documents in the current pipeline.
 /// </summary>
 public abstract class AddDocuments : Module
 {

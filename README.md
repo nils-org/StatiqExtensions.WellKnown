@@ -12,6 +12,8 @@ A set of [Statiq](https://www.statiq.dev) helpers to create files in `.well-know
 
 - [Install](#install)
 - [Usage](#usage)
+  - [WebFinger](#webfinger)
+  - [MicrosoftIdentityAssociation](#microsoftidentityassociation)
 - [Maintainer](#maintainer)
 - [License](#license)
 
@@ -23,20 +25,31 @@ dotnet add package StatiqExtensions.WellKnown
 
 ## Usage
 
-### `.well-known/webfinger` for fediverse account
-
-Create a [WebFinger](https://webfinger.net) file
-that contains static content and "redirects" to a
-real account in the fediverse.
+Example:
 
 ```cs
 await Bootstrapper
     .Factory
     .CreateWeb(args)
-    .WithWellKnown(x => x
-        .WebFingerAlias("nils_andresen@mastodon.social"))
+    .AddSetting(SettingKeys.WebFingerAlias.FromTemplate, "@nils_andresen@mastodon.social")
+    .AddPipeline<WellKnownFolderPipeline>()
     .RunAsync();
 ```
+
+### WebFinger
+
+To creates a [WebFinger](https://webfinger.net) file
+that contains static content and "redirects" to a
+real account in the fediverse, use one of the following settings:
+
+* `WebFingerAliasFromTemplate`: Set this to a fediverse handle and the content of the webFinger-file will be generated from an internal template.
+* `WebFingerAliasStaticResult`: Set this to the full content of the webFinger-file. This setting takes precedence over `WebFingerAliasFromTemplate`.
+
+### MicrosoftIdentityAssociation
+
+To create a [`microsoft-identity-association.json`](https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-configure-publisher-domain#verify-a-new-domain-for-your-app) file, use the setting below:
+
+* `MicrosoftIdentityAssociation.ApplicationId`: Set this to an application-id or a list of application-ids.
 
 ## Maintainer
 

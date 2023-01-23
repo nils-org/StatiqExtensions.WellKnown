@@ -12,7 +12,7 @@ public sealed class StaticResponseModule : AddDocuments
         : this(Config.FromSetting<object>(SettingKeys.WebFingerAlias.StaticResult))
     {}
     
-    public StaticResponseModule(Config<object> contentConfig)
+    private StaticResponseModule(Config<object> contentConfig)
     {
         _contentConfig = contentConfig;
     }
@@ -22,7 +22,7 @@ public sealed class StaticResponseModule : AddDocuments
         var staticResult = await _contentConfig.GetValueAsync<object>(null, context);
         if (staticResult == null)
         {
-            context.LogTrace(null, "No static alias configured.");
+            context.LogWarning(null, "No static alias configured.");
             return Array.Empty<IDocument>();
         }
 
@@ -50,30 +50,8 @@ public sealed class StaticResponseModule : AddDocuments
                 break;
         }
         
-        context.LogTrace(null, $"Using static configured value.");
-
-        // something in the Content-Pipeline needs every document to have a valid source path.
-        var source = context.FileSystem.InputPaths.Count > 0 
-            ? context.FileSystem.InputPaths[0]
-            : context.FileSystem.RootPath;
-        if (source.IsRelative)
-        {
-            source = context.FileSystem.RootPath.Combine(source);
-        }
-        
-        return context.CreateDocument(
-            source.Combine(".well-known/webfinger"),
-            new NormalizedPath(".well-known/webfinger", PathKind.Relative),
-            new Dictionary<string, object>
-            {
-                { "IsWebFingerDocument", true },
-                { "ShouldOutput", true },
-                { "ContentType", "Content" },
-                { "MediaType", "application/json" },
-                { "IncludeInSitemap", false },
-                { Common.Keys.DestinationExtension, null! }, // really, no extension. I mean it.
-                { Common.Keys.DestinationFileName, "webfinger" },
-            },
+        return context.CreateWellKnownDocument(
+            "webfinger",
             content).Yield();
 
     }
