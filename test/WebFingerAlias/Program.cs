@@ -5,8 +5,8 @@ await Bootstrapper
     .CreateWeb(args)
     //.AddSetting(SettingKeys.WebFingerAlias.StaticResult, GetSerializableDemo())
     //.AddSetting(SettingKeys.WebFingerAlias.StaticResult, GetStringDemo())
-    .WithWellKnown(x => x
-        .WebFingerAlias("@nils_andresen@mastodon.social"))
+    .AddSetting(SettingKeys.WebFingerAlias.FromTemplate, "nils_andresen@mastodon.social")
+    .AddPipeline<WellKnownFolderPipeline>()
     .RunAsync();
 
 

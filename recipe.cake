@@ -1,4 +1,4 @@
-#load nuget:?package=Cake.Recipe&version=3.0.1
+#load nuget:?package=Cake.Recipe&version=3.1.1
 
 Environment.SetVariableNames();
 
@@ -19,6 +19,6 @@ BuildParameters.PrintParameters(Context);
 
 ToolSettings.SetToolSettings(context: Context);
 ToolSettings.SetToolPreprocessorDirectives(
-    reSharperTools: "#tool nuget:?package=JetBrains.ReSharper.CommandLineTools&version=2022.3.0-eap09&prerelease");
+    reSharperTools: "#tool nuget:?package=JetBrains.ReSharper.CommandLineTools&version=2022.3.1");
 
 Build.RunDotNetCore();
