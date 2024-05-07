@@ -12,6 +12,7 @@ BuildParameters.SetParameters(
     repositoryOwner: "nils-org",
     shouldRunDotNetCorePack: true,
     shouldUseDeterministicBuilds: true,
+    shouldRunCodecov: false,
     preferredBuildProviderType: BuildProviderType.GitHubActions,
     preferredBuildAgentOperatingSystem: PlatformFamily.Linux);
 
